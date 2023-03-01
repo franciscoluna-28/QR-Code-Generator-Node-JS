@@ -1,16 +1,21 @@
 import express, { Request, Response } from "express";
 import bp from "body-parser";
 import qr from "qrcode";
+const path = require('path');
 
 // initializing express
 const app = express();
 
 // setting ejs view engine
 app.set("view engine", "ejs");
+app.set('views', path.join(__dirname, 'views'));
 
 // using a middleware called body parser
 app.use(bp.urlencoded({ extended: false }));
 app.use(bp.json());
+
+// exposing the dist folder so we can style properly
+app.use(express.static(path.join(__dirname, '../dist')));
 
 // routing the index.ejs template
 app.get("/", (req: Request, res: Response) => {
