@@ -5,16 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QR Code Generator</title>
     <link rel="stylesheet" type="text/css" href="/styles.css">
+    <link rel="stylesheet" type="text/css" href="/utils.css">
     <script src="https://kit.fontawesome.com/d5a98b8c2b.js" crossorigin="anonymous"></script>
   </head>
   <body>
-    <main class="container px-6 py-6">
+    <header class="w-full bg-secondary h-16 mb-4 lg:h-32">
+
+    </header>
+    <main class="container px-6 py-6 min-w-container">
       <header class="flex flex-col items-center">
-        <h1 class="uppercase font-bold text-4xl text-main">QR Code Generator</h1>
+        <h1 class="uppercase text-center font-bold text-4xl text-main">QR Code Generator</h1>
         <span class="block font-normal text-2xl text-secondary">Simple and easy to use!</span>
       </header>
 
-      <section class="flex flex-col px-24">
+      <section class="flex flex-col px-24 min-w-container">
         <p class="pt-6 text-gray-400">Please type the URL or Text below and click Generate!</p>
         <form class="form" action="/scan" method="POST">
           <input name="url" class="form-control shadow-md rounded-md px-2 w-full h-12 mt-2 text-gray-700 hover:shadow-lg duration-500" placeholder="URL or Text" type="text" required>
@@ -42,7 +46,7 @@
       </section>
     </main>
 
-    <footer class="h-auto bg-main flex flex-col py-12">
+    <footer class="bg-main min-h-full flex flex-col py-32">
       <span class="text-lg font-semibold text-white m-auto">Support us:</span>
       <div class="flex items-center m-auto">
         <ul class="flex justify-center gap-12 pt-4">
@@ -53,3 +57,5 @@
           </div>
           <span class="m-auto font-light text-white pt-4">Copyright © 2023 Francisco Luna</span>
           </footer>
+          </body>
+          </html>
