@@ -10,9 +10,11 @@
   <script src="https://kit.fontawesome.com/d5a98b8c2b.js" crossorigin="anonymous"></script>
 </head>
 
-<body class="h-auto">
 
-  <div class="container px-6 py-6">
+
+<body class="h-auto flex flex-col justify-center m-0">
+
+  <div class="container py-6 w-full">
     <header class="flex flex-col items-center">
       <h1 class="uppercase font-bold text-4xl text-main">Sucess!</h1>
       <span class="block font-normal text-xl !text-secondary text-center m-auto">Here is your generated QR code:</span>
@@ -22,20 +24,15 @@
       <img class="h-72 w-72" src=<%=src%> alt="QR Code Image">
       <p class="text-gray-700">Scan the QR Code to access data!</p>
       <a href="/"><button type="button" class="bg-secondary h-14 text-white font-semibold px-6 shadow-md rounded-2xl w-48 mt-4 hover:text-rose-200">Back</button></a>
+      
+  <div class="flex items-center flex-col pt-6">
+    <span class="block">QR Code Generator</span>
+    <span class="block pt-3">Copyright © 2023 Francisco Luna</span>
+  </div>
       <br>
     </div>
   </div>
-  <footer class="bg-main w-full h-full flex flex-col py-12">
-    <span class="text-lg font-semibold text-white m-auto">Support us:</span>
-    <div class="flex h-full sticky items-center m-auto">
-      <ul class="flex justify-center gap-12 pt-4">
-        <li><a href="https://twitter.com"><i class="fab fa-twitter text-white text-2xl hover:scale-110 duration-200"></i></a></li>
-        <li><a href="https://www.linkedin.com"><i class="fab fa-linkedin-in text-white text-2xl hover:scale-110 duration-200"></i></a></li>
-        <li><a href="https://www.github.com"><i class="fab fa-github text-white text-2xl hover:scale-110 duration-200"></i></a></li>
-      </ul>
-    </div>
-    <span class="m-auto font-light text-white pt-4">Copyright © 2023 Francisco Luna</span>
-  </footer>
+
 
 
   </div>
