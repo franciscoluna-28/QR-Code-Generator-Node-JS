@@ -1,5 +1,9 @@
 {
-  "devDependencies": {
-    "tailwindcss": "^3.2.7"
-  }
+    "devDependencies": {
+        "tailwindcss": "^3.2.7"
+    },
+    "scripts": {
+        "buildcss": "npx tailwindcss -i ./back/styles/styles.css -o ./dist/styles.css --watch",
+        "start": "nodemon ./back/app"
+    }
 }
