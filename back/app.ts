@@ -1,54 +1,36 @@
 import express, { Request, Response } from "express";
 import bp from "body-parser";
+import * as dotenv from "dotenv";
 import qr from "qrcode";
 const path = require('path');
+import { isValidRegexForUrl } from "./utilities/regexVerification";
 
-// initializing express
+// initializing app dependencies
 const app = express();
-
-// setting ejs view engine
 app.set("view engine", "ejs");
 app.set('views', path.join(__dirname, 'views'));
 
-// using a middleware called body parser
 app.use(bp.urlencoded({ extended: false }));
 app.use(bp.json());
 
-// exposing the dist folder so we can style properly
+dotenv.config();
+
+// Exposing dist
 app.use(express.static(path.join(__dirname, '../dist')));
 
-// routing the index.ejs template
+// Index route
 app.get("/", (req: Request, res: Response) => {
   res.render("index.ejs");
 });
 
-// creating a post request to convert the URL into a QR Code
+// Post request to generate the url
 app.post("/scan", (req: Request, res: Response) => {
   const url: string = req.body.url;
 
-  // Verify if the URL is valid using regex
-  const validUrlRegex = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/i;
-
-  if (!validUrlRegex.test(url)) {
-    res.send("Invalid URL!");
-    return;
-  }
-
-  // Let's check if the URL is empty
-  if (typeof url !== "string" || url.trim() === "") {
-    res.send("Empty data!");
-    return;
-  }
-
-  // If everything is fine, generate the QR Code
-  qr.toDataURL(url, (err, src) => {
-    if (err) res.send("Something went wrong");
-
-    // returning the data if everything is fine
-    res.render("scan", { src });
-  });
+  // Regex verification check
+  isValidRegexForUrl(url, res, qr)
 });
 
 // setting up the port for listening requests
-const port = 5000;
+const port = (process.env["SERVER_PORT"])
 app.listen(port, () => console.log(`Server at ${port}`));
