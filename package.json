@@ -4,8 +4,8 @@
     },
     "scripts": {
         "build-css": "npx tailwindcss -i ./src/styles/styles.css -o ./public/styles/styles.css --watch",
-        "build-js": "npx tsc --esModuleInterop --w",
-        "run-js": "npx nodemon ./public/scripts/app",
+        "build-js": "tsc --esModuleInterop --w",
+        "run-js": "nodemon ./public/scripts/app",
         "start": "npx npm-run-all build-css build-js run-js"
     },
     "dependencies": {
