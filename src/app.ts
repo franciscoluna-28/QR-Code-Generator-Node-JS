@@ -8,7 +8,7 @@ import { isValidRegexForUrl } from "./helpers/regexVerification";
 // initializing app dependencies
 const app = express();
 app.set("view engine", "ejs");
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, '../../src/views'));
 
 app.use(bp.urlencoded({ extended: false }));
 app.use(bp.json());
@@ -16,7 +16,7 @@ app.use(bp.json());
 dotenv.config();
 
 // Exposing dist
-app.use(express.static(path.join(__dirname, '/public')));
+app.use(express.static(path.join(__dirname, '../../public')));
 
 // Index route
 app.get("/", (req: Request, res: Response) => {
