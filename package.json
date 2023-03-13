@@ -4,7 +4,9 @@
     },
     "scripts": {
         "build-css": "npx tailwindcss -i ./src/styles/styles.css -o ./public/styles/styles.css",
+        "watch-css": "npx tailwindcss -i ./src/styles/styles.css -o ./public/styles/styles.css --watch",
         "build-js": "tsc --esModuleInterop",
+        "watch-js": "tsc --esModuleInterop --w",
         "run-js": "node ./public/scripts/app",
         "start": "npx npm-run-all build-css build-js run-js"
     },
