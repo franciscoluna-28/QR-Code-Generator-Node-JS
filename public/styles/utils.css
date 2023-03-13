@@ -1,7 +1,6 @@
-.min-w-container{
-    min-width: 50%;
-}
-
-.logo{
-    padding-left: 3rem;
+.logo {
+    width: 100%;
+    height: auto !important;
+    max-height: 2rem;
+    max-width: fit-content;
 }
