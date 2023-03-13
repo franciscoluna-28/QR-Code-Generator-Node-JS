@@ -3,7 +3,7 @@
         "tailwindcss": "^3.2.7"
     },
     "scripts": {
-        "build-css": "npx tailwindcss -i ./src/styles/styles.css -o ./public/styles/styles.css --watch",
+        "build-css": "npx tailwindcss -i ./src/styles/styles.css -o ./public/styles/styles.css",
         "build-js": "tsc --esModuleInterop",
         "run-js": "node ./public/scripts/app",
         "start": "npx npm-run-all build-css build-js run-js"
